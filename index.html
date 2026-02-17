@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparent Translation</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/cross.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#36454F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="img/cross-192.png">
+</head>
+<body>
+  <header>
+    <h1>Transparent Translation</h1>
+  </header>
+  <nav class="selector-bar">
+    <label for="book-select">Book</label>
+    <select id="book-select">
+      <option value="Matthew" selected>Matthew</option>
+      <option value="Mark">Mark</option>
+      <option value="Luke">Luke</option>
+      <option value="John">John</option>
+      <option value="Acts">Acts</option>
+      <option value="Romans">Romans</option>
+      <option value="1 Corinthians">1 Corinthians</option>
+      <option value="2 Corinthians">2 Corinthians</option>
+      <option value="Galatians">Galatians</option>
+      <option value="Ephesians">Ephesians</option>
+      <option value="Philippians">Philippians</option>
+      <option value="Colossians">Colossians</option>
+      <option value="1 Thessalonians">1 Thessalonians</option>
+      <option value="2 Thessalonians">2 Thessalonians</option>
+      <option value="1 Timothy">1 Timothy</option>
+      <option value="2 Timothy">2 Timothy</option>
+      <option value="Titus">Titus</option>
+      <option value="Philemon">Philemon</option>
+      <option value="Hebrews">Hebrews</option>
+      <option value="James">James</option>
+      <option value="1 Peter">1 Peter</option>
+      <option value="2 Peter">2 Peter</option>
+      <option value="1 John">1 John</option>
+      <option value="2 John">2 John</option>
+      <option value="3 John">3 John</option>
+      <option value="Jude">Jude</option>
+      <option value="Revelation">Revelation</option>
+    </select>
+
+    <label for="chapter-select">Chapter</label>
+    <select id="chapter-select"></select>
+
+    <label for="verse-from">From</label>
+    <input id="verse-from" type="number" min="1" placeholder="—">
+
+    <label for="verse-to">To</label>
+    <input id="verse-to" type="number" min="1" placeholder="—">
+
+  </nav>
+  <main>
+    <h2 class="chapter-heading" id="chapter-heading">Matthew 1</h2>
+    <div id="verses"></div>
+  </main>
+
+  <div id="overlay" class="overlay hidden"></div>
+  <div id="popout" class="popout hidden">
+    <button id="popout-close" class="popout-close" aria-label="Close">&times;</button>
+    <div class="popout-english" id="popout-english"></div>
+    <div class="popout-greek" id="popout-greek"></div>
+    <div class="popout-strongs" id="popout-strongs"></div>
+    <div class="popout-def" id="popout-def"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/lexicon.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
